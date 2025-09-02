@@ -1,13 +1,71 @@
-// Navigation toggle for mobile
+// Initialize AOS (Animate On Scroll)
+document.addEventListener('DOMContentLoaded', function() {
+    AOS.init({
+        duration: 800,
+        easing: 'ease-out-cubic',
+        once: true,
+        offset: 100,
+        delay: 0,
+        anchorPlacement: 'top-bottom'
+    });
+});
+
+// Dark Theme Toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = themeToggle.querySelector('i');
+    
+    // Check for saved theme preference or default to light mode
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    
+    // Update icon based on current theme
+    updateThemeIcon(currentTheme);
+    
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        // Add transition class for smooth theme change
+        document.body.classList.add('theme-transition');
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeIcon(newTheme);
+        
+        // Remove transition class after animation
+        setTimeout(() => {
+            document.body.classList.remove('theme-transition');
+        }, 300);
+        
+        // Add a fun rotation animation
+        themeToggle.style.transform = 'rotate(360deg)';
+        setTimeout(() => {
+            themeToggle.style.transform = '';
+        }, 300);
+    });
+    
+    function updateThemeIcon(theme) {
+        if (theme === 'dark') {
+            themeIcon.className = 'fas fa-sun';
+        } else {
+            themeIcon.className = 'fas fa-moon';
+        }
+    }
+});
+
+// Enhanced Navigation
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
+    const navbar = document.querySelector('.navbar');
 
-    // Toggle mobile menu
+    // Toggle mobile menu with enhanced animation
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
     });
 
     // Close mobile menu when clicking on a link
@@ -15,250 +73,265 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', () => {
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
+            document.body.classList.remove('menu-open');
         });
     });
 
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
+    // Enhanced navbar scroll effect
+    let lastScrollY = window.scrollY;
+    window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+        
+        if (currentScrollY > 100) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
         }
+        
+        // Hide/show navbar on scroll
+        if (currentScrollY > lastScrollY && currentScrollY > 100) {
+            navbar.style.transform = 'translateY(-100%)';
+        } else {
+            navbar.style.transform = 'translateY(0)';
+        }
+        
+        lastScrollY = currentScrollY;
     });
 });
 
-// Smooth scrolling for navigation links
+// Smooth scrolling with enhanced easing
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+            const offsetTop = target.offsetTop - 70; // Account for fixed navbar
+            
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
             });
         }
     });
 });
 
-// Navbar scroll effect
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = 'none';
-    }
+// Enhanced Quantum Animation
+document.addEventListener('DOMContentLoaded', () => {
+    const qubits = document.querySelectorAll('.qubit');
+    
+    qubits.forEach((qubit, index) => {
+        // Enhanced glow effect with theme awareness
+        setInterval(() => {
+            const intensity = Math.random() * 0.5 + 0.5;
+            const theme = document.documentElement.getAttribute('data-theme');
+            const glowColor = theme === 'dark' ? '139, 92, 246' : '255, 255, 255';
+            
+            qubit.style.boxShadow = `
+                0 0 ${20 + intensity * 30}px rgba(${glowColor}, ${intensity * 0.6}),
+                inset 0 0 ${10 + intensity * 15}px rgba(${glowColor}, ${intensity * 0.3})
+            `;
+        }, 1000 + index * 500);
+        
+        // Add quantum entanglement effect
+        qubit.addEventListener('mouseenter', () => {
+            qubits.forEach((otherQubit, otherIndex) => {
+                if (otherIndex !== index) {
+                    otherQubit.style.animationDuration = '0.5s';
+                    setTimeout(() => {
+                        otherQubit.style.animationDuration = '3s';
+                    }, 1000);
+                }
+            });
+        });
+    });
 });
 
-// Intersection Observer for animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
+// Enhanced Intersection Observer for animations
+const enhancedObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in-up');
+            entry.target.classList.add('animate-in');
+            
+            // Add staggered animations for child elements
+            const children = entry.target.querySelectorAll('.skill-category, .achievement-card, .project-card');
+            children.forEach((child, index) => {
+                setTimeout(() => {
+                    child.style.animation = `fadeInUp 0.6s ease forwards`;
+                    child.style.animationDelay = `${index * 0.1}s`;
+                }, index * 100);
+            });
         }
     });
-}, observerOptions);
+}, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+});
 
-// Observe elements for animation
+// Observe sections for enhanced animations
 document.addEventListener('DOMContentLoaded', () => {
-    const animateElements = document.querySelectorAll(
-        '.achievement-card, .project-card, .skill-category, .about-text'
-    );
-    
-    animateElements.forEach(el => {
-        observer.observe(el);
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        enhancedObserver.observe(section);
     });
 });
 
-// Typing animation for hero subtitle
-function typeWriter(element, text, speed = 50) {
+// Typing animation for hero subtitle with cursor effect
+function enhancedTypeWriter(element, text, speed = 30) {
     let i = 0;
     element.innerHTML = '';
+    element.style.borderRight = '2px solid rgba(255, 255, 255, 0.7)';
     
     function type() {
         if (i < text.length) {
             element.innerHTML += text.charAt(i);
             i++;
-            setTimeout(type, speed);
+            setTimeout(type, speed + Math.random() * 20); // Add natural variation
+        } else {
+            // Blinking cursor effect
+            setInterval(() => {
+                element.style.borderRight = element.style.borderRight === 'none' ? 
+                    '2px solid rgba(255, 255, 255, 0.7)' : 'none';
+            }, 500);
         }
     }
     
     type();
 }
 
-// Initialize typing animation when page loads
+// Initialize enhanced typing animation
 window.addEventListener('load', () => {
     const subtitle = document.querySelector('.hero-subtitle');
     const originalText = subtitle.textContent;
-    typeWriter(subtitle, originalText, 30);
+    enhancedTypeWriter(subtitle, originalText, 25);
 });
 
-// Quantum animation enhancement
-document.addEventListener('DOMContentLoaded', () => {
-    const qubits = document.querySelectorAll('.qubit');
-    
-    qubits.forEach((qubit, index) => {
-        // Add random glow effect
-        setInterval(() => {
-            const intensity = Math.random() * 0.5 + 0.5;
-            qubit.style.boxShadow = `0 0 ${20 + intensity * 30}px rgba(255, 255, 255, ${intensity * 0.5})`;
-        }, 1000 + index * 500);
-    });
-});
-
-// Project card interactions
-document.addEventListener('DOMContentLoaded', () => {
-    const projectCards = document.querySelectorAll('.project-card');
-    
-    projectCards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            card.style.transform = 'translateY(-8px) scale(1.02)';
-        });
-        
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'translateY(0) scale(1)';
-        });
-    });
-});
-
-// Achievement card animations
-document.addEventListener('DOMContentLoaded', () => {
-    const achievementCards = document.querySelectorAll('.achievement-card');
-    
-    achievementCards.forEach((card, index) => {
-        card.style.animationDelay = `${index * 0.1}s`;
-        
-        card.addEventListener('mouseenter', () => {
-            card.style.transform = 'translateY(-10px) rotateY(5deg)';
-        });
-        
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'translateY(0) rotateY(0deg)';
-        });
-    });
-});
-
-// Contact form enhancement (if added later)
-function initContactForm() {
-    const contactForm = document.querySelector('#contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Add loading state
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-            
-            // Simulate form submission (replace with actual form handling)
-            setTimeout(() => {
-                submitBtn.textContent = 'Message Sent!';
-                submitBtn.style.background = '#10b981';
-                
-                setTimeout(() => {
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
-                    submitBtn.style.background = '';
-                    contactForm.reset();
-                }, 2000);
-            }, 1500);
-        });
-    }
-}
-
-// Dark mode toggle (optional feature)
-function initDarkMode() {
-    const darkModeToggle = document.querySelector('#dark-mode-toggle');
-    if (darkModeToggle) {
-        const isDarkMode = localStorage.getItem('darkMode') === 'true';
-        
-        if (isDarkMode) {
-            document.body.classList.add('dark-mode');
-        }
-        
-        darkModeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            const isDark = document.body.classList.contains('dark-mode');
-            localStorage.setItem('darkMode', isDark);
-        });
-    }
-}
-
-// Parallax scrolling effect
-window.addEventListener('scroll', () => {
+// Parallax scrolling effect with performance optimization
+let ticking = false;
+function updateParallax() {
     const scrolled = window.pageYOffset;
-    const rate = scrolled * -0.5;
+    const rate = scrolled * -0.3;
     
     const heroVisual = document.querySelector('.hero-visual');
     if (heroVisual) {
         heroVisual.style.transform = `translateY(${rate}px)`;
     }
-});
+    
+    // Parallax for background elements
+    const hero = document.querySelector('.hero');
+    if (hero) {
+        hero.style.backgroundPosition = `center ${scrolled * 0.1}px`;
+    }
+    
+    ticking = false;
+}
 
-// Loading screen
-window.addEventListener('load', () => {
-    const loadingScreen = document.querySelector('.loading-screen');
-    if (loadingScreen) {
-        setTimeout(() => {
-            loadingScreen.style.opacity = '0';
-            setTimeout(() => {
-                loadingScreen.style.display = 'none';
-            }, 500);
-        }, 1000);
+window.addEventListener('scroll', () => {
+    if (!ticking) {
+        requestAnimationFrame(updateParallax);
+        ticking = true;
     }
 });
 
-// Initialize all features
+// Enhanced project card interactions
 document.addEventListener('DOMContentLoaded', () => {
-    initContactForm();
-    initDarkMode();
+    const projectCards = document.querySelectorAll('.project-card');
     
-    // Add Easter egg - Konami code
-    let konamiCode = [];
-    const konamiSequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
-    
-    document.addEventListener('keydown', (e) => {
-        konamiCode.push(e.keyCode);
+    projectCards.forEach((card, index) => {
+        // Add entrance animation delay
+        card.style.animationDelay = `${index * 0.1}s`;
         
-        if (konamiCode.length > konamiSequence.length) {
-            konamiCode.shift();
-        }
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-10px) scale(1.02) rotateX(5deg)';
+            card.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.2)';
+            
+            // Add glow effect
+            const theme = document.documentElement.getAttribute('data-theme');
+            const glowColor = theme === 'dark' ? '139, 92, 246' : '37, 99, 235';
+            card.style.boxShadow += `, 0 0 30px rgba(${glowColor}, 0.3)`;
+        });
         
-        if (konamiCode.join(',') === konamiSequence.join(',')) {
-            // Easter egg - quantum particles effect
-            createQuantumParticles();
-            konamiCode = [];
-        }
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0) scale(1) rotateX(0deg)';
+            card.style.boxShadow = '';
+        });
+        
+        // Add click effect
+        card.addEventListener('mousedown', () => {
+            card.style.transform = 'translateY(-8px) scale(0.98)';
+        });
+        
+        card.addEventListener('mouseup', () => {
+            card.style.transform = 'translateY(-10px) scale(1.02) rotateX(5deg)';
+        });
     });
 });
 
-function createQuantumParticles() {
-    const particleCount = 50;
+// Skill tags animation
+document.addEventListener('DOMContentLoaded', () => {
+    const skills = document.querySelectorAll('.skill');
+    
+    skills.forEach((skill, index) => {
+        skill.addEventListener('mouseenter', () => {
+            skill.style.transform = 'scale(1.1) rotate(5deg)';
+            skill.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.2)';
+        });
+        
+        skill.addEventListener('mouseleave', () => {
+            skill.style.transform = 'scale(1) rotate(0deg)';
+            skill.style.boxShadow = '';
+        });
+    });
+});
+
+// Enhanced Easter egg - Konami code with quantum particles
+let konamiCode = [];
+const konamiSequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+
+document.addEventListener('keydown', (e) => {
+    konamiCode.push(e.keyCode);
+    
+    if (konamiCode.length > konamiSequence.length) {
+        konamiCode.shift();
+    }
+    
+    if (konamiCode.join(',') === konamiSequence.join(',')) {
+        createEnhancedQuantumParticles();
+        konamiCode = [];
+    }
+});
+
+function createEnhancedQuantumParticles() {
+    const particleCount = 100;
     const body = document.body;
     
+    // Create particle burst effect
     for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
+        const size = Math.random() * 6 + 2;
+        const hue = Math.random() * 360;
+        
         particle.style.cssText = `
             position: fixed;
-            width: 4px;
-            height: 4px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
+            width: ${size}px;
+            height: ${size}px;
+            background: linear-gradient(45deg, hsl(${hue}, 100%, 60%), hsl(${hue + 60}, 100%, 70%));
             border-radius: 50%;
             pointer-events: none;
             z-index: 9999;
-            left: ${Math.random() * window.innerWidth}px;
-            top: ${Math.random() * window.innerHeight}px;
-            animation: float ${2 + Math.random() * 3}s ease-in-out infinite;
+            left: ${window.innerWidth / 2}px;
+            top: ${window.innerHeight / 2}px;
+            animation: quantumExplode ${2 + Math.random() * 3}s ease-out forwards;
+            box-shadow: 0 0 ${size * 2}px hsl(${hue}, 100%, 60%);
         `;
+        
+        // Random direction
+        const angle = (Math.PI * 2 * i) / particleCount;
+        const velocity = 200 + Math.random() * 300;
+        const deltaX = Math.cos(angle) * velocity;
+        const deltaY = Math.sin(angle) * velocity;
+        
+        particle.style.setProperty('--deltaX', deltaX + 'px');
+        particle.style.setProperty('--deltaY', deltaY + 'px');
         
         body.appendChild(particle);
         
@@ -266,34 +339,107 @@ function createQuantumParticles() {
             particle.remove();
         }, 5000);
     }
+    
+    // Show congratulations message
+    showQuantumMessage();
 }
 
-// Performance optimization - lazy loading for project images
-document.addEventListener('DOMContentLoaded', () => {
-    const projectImages = document.querySelectorAll('.project-image[data-src]');
+function showQuantumMessage() {
+    const message = document.createElement('div');
+    message.textContent = '🎉 Quantum State Activated! 🎉';
+    message.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        padding: 20px 40px;
+        border-radius: 15px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        z-index: 10000;
+        animation: quantumMessage 3s ease-in-out forwards;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    `;
     
-    const imageObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.style.backgroundImage = `url(${img.dataset.src})`;
-                img.removeAttribute('data-src');
-                imageObserver.unobserve(img);
-            }
-        });
-    });
+    document.body.appendChild(message);
     
-    projectImages.forEach(img => imageObserver.observe(img));
-});
+    setTimeout(() => {
+        message.remove();
+    }, 3000);
+}
 
-// Add floating animation keyframes dynamically
+// Add dynamic keyframes for animations
 const style = document.createElement('style');
 style.textContent = `
-    @keyframes float {
-        0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 1; }
-        25% { transform: translateY(-20px) rotate(90deg); opacity: 0.8; }
-        50% { transform: translateY(-40px) rotate(180deg); opacity: 0.6; }
-        75% { transform: translateY(-20px) rotate(270deg); opacity: 0.8; }
+    .theme-transition * {
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
+    }
+    
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes quantumExplode {
+        0% {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+        }
+        100% {
+            opacity: 0;
+            transform: translate(var(--deltaX), var(--deltaY)) scale(0);
+        }
+    }
+    
+    @keyframes quantumMessage {
+        0% {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.5);
+        }
+        20% {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        80% {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        100% {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.8);
+        }
+    }
+    
+    .animate-in {
+        animation: fadeInUp 0.8s ease forwards;
+    }
+    
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+    
+    .nav-menu.active {
+        transform: translateX(0);
+    }
+    
+    body.menu-open {
+        overflow: hidden;
     }
 `;
 document.head.appendChild(style);
