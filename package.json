@@ -1,0 +1,29 @@
+{
+  "name": "portfolio-website",
+  "version": "1.0.0",
+  "description": "Modern portfolio website showcasing quantum computing research and full-stack development projects",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 3000",
+    "serve": "npx http-server -p 3000 -o",
+    "build": "echo 'Static site - no build required'",
+    "deploy": "echo 'Deploy using GitHub Pages, Netlify, or Vercel'"
+  },
+  "keywords": [
+    "portfolio",
+    "quantum-computing",
+    "full-stack",
+    "web-development",
+    "responsive-design"
+  ],
+  "author": "Legend-2727",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Legend-2727/portfolio.git"
+  },
+  "homepage": "https://legend-2727.github.io/portfolio",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

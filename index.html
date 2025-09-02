@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farhad Al-Amin Dipto - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">Legend-2727</a>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#achievements" class="nav-link">Achievements</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Hi 👋, I'm <span class="highlight">Farhad Al-Amin Dipto</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Final-year CSE undergraduate at BUET with expertise in 
+                        <span class="quantum">Quantum Computing</span>, 
+                        <span class="fullstack">Full-Stack Development</span>, and 
+                        <span class="systems">Systems Programming</span>
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">View Projects</a>
+                        <a href="mailto:alaminfarhad27@gmail.com" class="btn btn-secondary">Contact Me</a>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/al-amin-farhad-a563521a7" target="_blank" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/Legend-2727" target="_blank" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://youtube.com/@Legend-2727" target="_blank" class="social-link">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="quantum-animation">
+                        <div class="qubit"></div>
+                        <div class="qubit"></div>
+                        <div class="qubit"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-down">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm a final-year Computer Science & Engineering student at Bangladesh University of Engineering and Technology (BUET), passionate about cutting-edge technologies that shape the future.</p>
+                    
+                    <div class="research-interests">
+                        <h3>🔬 Research Interests & Current Focus</h3>
+                        <ul>
+                            <li><strong>Quantum Computing Research:</strong> CAES qubit mapping strategy for noisy quantum hardware using real IBM error data</li>
+                            <li><strong>Artificial Intelligence & Machine Learning:</strong> Exploring quantum ML algorithms and classical ML implementations</li>
+                            <li><strong>Large Language Models (LLMs):</strong> Research and development in natural language processing and AI applications</li>
+                            <li><strong>Blockchain & Web3:</strong> Content authenticity verification and decentralized applications</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4><i class="fas fa-code"></i> Languages</h4>
+                        <div class="skills">
+                            <span class="skill">Python</span>
+                            <span class="skill">Java</span>
+                            <span class="skill">C++</span>
+                            <span class="skill">JavaScript</span>
+                            <span class="skill">PHP</span>
+                            <span class="skill">C</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4><i class="fas fa-atom"></i> Quantum</h4>
+                        <div class="skills">
+                            <span class="skill">Qiskit</span>
+                            <span class="skill">PennyLane</span>
+                            <span class="skill">IBM Quantum</span>
+                            <span class="skill">NISQ</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4><i class="fas fa-globe"></i> Web</h4>
+                        <div class="skills">
+                            <span class="skill">React</span>
+                            <span class="skill">Node.js</span>
+                            <span class="skill">Laravel</span>
+                            <span class="skill">Spring Boot</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4><i class="fas fa-link"></i> Blockchain</h4>
+                        <div class="skills">
+                            <span class="skill">Algorand</span>
+                            <span class="skill">Smart Contracts</span>
+                            <span class="skill">Web3</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="achievements">
+        <div class="container">
+            <h2 class="section-title">🏆 Notable Achievements</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card featured">
+                    <div class="achievement-icon">🥈</div>
+                    <h3>2nd Prize Winner</h3>
+                    <p>CQhack25 Quantum Computing Hackathon</p>
+                    <a href="https://www.virtualbadge.io/certificate-validator?credential=59f3e7ce-6d19-44e2-8401-4a5e74d0f41b" target="_blank" class="verify-link">Verify Certificate</a>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">🌍</div>
+                    <h3>Global Participant</h3>
+                    <p>Bolt Global Hackathon (World's Largest)</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">🔬</div>
+                    <h3>Quantum Success</h3>
+                    <p>IonQ VQI-FLIQ 2025 Competition</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">🎯</div>
+                    <h3>Social Impact</h3>
+                    <p>UAP Hackathon 2025</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">🚀 Featured Projects</h2>
+            <div class="projects-grid">
+                <!-- Quantum Playground -->
+                <div class="project-card featured">
+                    <div class="project-image">
+                        <div class="project-badge">🏆 Award Winner</div>
+                        <i class="fas fa-atom project-icon"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Quantum Playground</h3>
+                        <p>Interactive 3D quantum algorithm visualizations featuring Grover's Search, QAOA, Quantum ML, and Deutsch-Jozsa algorithms. 2nd Prize winner at CQhack25.</p>
+                        <div class="project-tech">
+                            <span class="tech">Python</span>
+                            <span class="tech">Qiskit</span>
+                            <span class="tech">Streamlit</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://quantum-playground.streamlit.app/" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <a href="https://github.com/Legend-2727/Quantum-Playground" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="https://youtu.be/Y2Yp1Pa4Sx0" target="_blank" class="project-link">
+                                <i class="fab fa-youtube"></i> Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Veridica -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-shield-alt project-icon"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Veridica</h3>
+                        <p>Blockchain-powered content authenticity verification platform using Algorand. Features AI video/audio generation with cryptographic ownership proof.</p>
+                        <div class="project-tech">
+                            <span class="tech">React</span>
+                            <span class="tech">Algorand</span>
+                            <span class="tech">AI/ML</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://veridica.netlify.app/" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <a href="https://github.com/Legend-2727/Veridica" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="https://youtu.be/CkMoEun7Z38" target="_blank" class="project-link">
+                                <i class="fab fa-youtube"></i> Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DevConnect -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-network-wired project-icon"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>DevConnect Platform</h3>
+                        <p>Full-stack microservices architecture with real-time communication and scalable deployment using modern cloud technologies.</p>
+                        <div class="project-tech">
+                            <span class="tech">Node.js</span>
+                            <span class="tech">React</span>
+                            <span class="tech">PostgreSQL</span>
+                            <span class="tech">Docker</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Legend-2727/DevConnect-Backend" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> Backend
+                            </a>
+                            <a href="https://github.com/Legend-2727/Devconnect-Frontend" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> Frontend
+                            </a>
+                            <a href="https://youtu.be/9UrId7DYDHU" target="_blank" class="project-link">
+                                <i class="fab fa-youtube"></i> Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- YouTube Platform -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-play project-icon"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>YouTube Dummy Platform</h3>
+                        <p>Complete video-sharing platform with custom recommendation algorithm, advertiser dashboard, and comprehensive user engagement features.</p>
+                        <div class="project-tech">
+                            <span class="tech">React</span>
+                            <span class="tech">Node.js</span>
+                            <span class="tech">MySQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Legend-2727/2-2-Project--Youtube--dummy---" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sisimpur Chat -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-comments project-icon"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Sisimpur - Real-time Chat</h3>
+                        <p>Production-ready chat application with authentication, emoji support, file uploads, and real-time communication features.</p>
+                        <div class="project-tech">
+                            <span class="tech">React</span>
+                            <span class="tech">REST API</span>
+                            <span class="tech">Docker</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Legend-2727/Sisimpur-Frontend" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ocean of Movies -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-film project-icon"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Ocean of Movies</h3>
+                        <p>JavaFX desktop application for movie management with client-server architecture and secure file transfer capabilities.</p>
+                        <div class="project-tech">
+                            <span class="tech">Java</span>
+                            <span class="tech">JavaFX</span>
+                            <span class="tech">FXML</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Legend-2727/JavaFinalProject" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="more-projects">
+                <a href="https://github.com/Legend-2727?tab=repositories" target="_blank" class="btn btn-outline">
+                    <i class="fab fa-github"></i> View All Projects on GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">📧 Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <p>Interested in quantum computing, full-stack development, or just want to connect? I'd love to hear from you!</p>
+                    
+                    <div class="contact-methods">
+                        <a href="mailto:alaminfarhad27@gmail.com" class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <span>alaminfarhad27@gmail.com</span>
+                        </a>
+                        <a href="https://linkedin.com/in/al-amin-farhad-a563521a7" target="_blank" class="contact-method">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn Profile</span>
+                        </a>
+                        <a href="https://github.com/Legend-2727" target="_blank" class="contact-method">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub Portfolio</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="current-focus">
+                    <h3>🎯 Current Focus</h3>
+                    <ul>
+                        <li>Quantum Computing Research & NISQ optimization</li>
+                        <li>AI/ML applications and LLM development</li>
+                        <li>Full-stack development with modern frameworks</li>
+                        <li>Blockchain and Web3 technologies</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Farhad Al-Amin Dipto. Built with passion for quantum computing and innovation.</p>
+                <div class="footer-stats">
+                    <img src="https://github-readme-stats.vercel.app/api?username=Legend-2727&show_icons=true&theme=dark&bg_color=transparent&hide_border=true" alt="GitHub Stats">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
