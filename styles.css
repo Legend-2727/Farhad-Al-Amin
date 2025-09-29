@@ -1587,7 +1587,8 @@ details > summary {
 }
 
 .demo-bottom-spacer {
-    height: 3rem;
+    height: 4rem;
+    margin-bottom: 2rem;
 }
 
 /* Fix line visibility for dark/light modes */
@@ -1609,4 +1610,20 @@ details > summary {
     color: var(--text-primary);
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 0.5rem;
+}
+
+/* Footer text visibility fix */
+.footer p {
+    color: var(--text-primary) !important;
+    opacity: 1;
+}
+
+/* Ensure footer content is visible in both themes */
+.footer-content {
+    color: var(--text-primary);
+}
+
+.footer-content p {
+    color: var(--text-secondary) !important;
+    font-weight: 400;
 }
