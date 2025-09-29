@@ -1561,3 +1561,52 @@ details > summary {
     color: var(--text-secondary);
     font-size: 1.1rem;
 }
+
+/* Hero Co-founder Section */
+.hero-cofounder {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.hero-cofounder a {
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.hero-cofounder a:hover {
+    text-decoration: underline;
+}
+
+/* Demo Section Spacing */
+.demo-spacer {
+    height: 2rem;
+}
+
+.demo-bottom-spacer {
+    height: 3rem;
+}
+
+/* Fix line visibility for dark/light modes */
+hr, .divider, details > summary::after {
+    border-color: var(--border-color);
+}
+
+/* Ensure borders are visible in both themes */
+.section-divider {
+    border-top: 1px solid var(--border-color);
+    margin: 2rem 0;
+}
+
+/* Details summary styling for better visibility */
+details > summary {
+    cursor: pointer;
+    margin: .75rem 0;
+    font-weight: 600;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
