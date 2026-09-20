@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
 <title>Farhad Al-Amin Dipto</title>
 
 <meta name="description" content="Farhad Al-Amin Dipto — AI Research Scientist at GenMD and CSE graduate of BUET. Research on multimodal and cross-lingual large language models, evaluation methodology, calibration and abstention." />
@@ -39,260 +40,281 @@
 </head>
 <body>
 
-<main>
+<div class="page">
 
-  <header class="profile">
+  <aside class="sidebar">
     <img class="photo" src="photo.jpg" width="600" height="600"
          alt="Portrait of Farhad Al-Amin Dipto" />
-    <div class="identity">
-      <h1>Farhad Al-Amin Dipto</h1>
-      <p class="affil">
-        AI Research Scientist, <a href="https://genmd.ai">GenMD</a><br>
-        B.Sc. in Computer Science and Engineering, <abbr title="Bangladesh University of Engineering and Technology">BUET</abbr>, 2026
-      </p>
-      <p class="contact">
-        Dhaka, Bangladesh &middot;
-        <a href="mailto:alaminfarhad27@gmail.com">alaminfarhad27@gmail.com</a>
-      </p>
-      <nav class="links" aria-label="Profiles">
-        <a href="CV.pdf">CV</a>
-        <a href="https://scholar.google.com/citations?hl=en&amp;user=xZydn3QAAAAJ">Google Scholar</a>
-        <a href="https://github.com/Legend-2727">GitHub</a>
-        <a href="https://www.linkedin.com/in/al-amin-farhad">LinkedIn</a>
-        <a href="https://huggingface.co/Legend2727">Hugging Face</a>
-      </nav>
-    </div>
-  </header>
-
-  <section id="about">
-    <p>
-      I am an AI Research Scientist at GenMD, a healthcare-AI company built out of Stanford Medicine,
-      and a 2026 graduate of the Department of Computer Science and Engineering at BUET, where my
-      undergraduate thesis on cross-lingual multimodal generation was supervised by
-      Prof. Rifat Shahriyar.
+    <h1>Farhad Al-Amin Dipto</h1>
+    <p class="affil">
+      AI Research Scientist<br>
+      <a href="https://genmd.ai">GenMD</a>
     </p>
-    <p>
-      My work is about <em>when a generative system should be trusted</em>: measuring where
-      vision-language and retrieval-augmented models break, designing evaluation that separates real
-      capability from output style, and building gates that let a system abstain instead of guessing.
-      I am currently applying to PhD programs in natural language processing and machine learning.
+    <p class="affil">
+      B.Sc. in Computer Science and Engineering, 2026<br>
+      <abbr title="Bangladesh University of Engineering and Technology">BUET</abbr>
     </p>
-  </section>
-
-  <section id="interests">
-    <h2>Research Interests</h2>
-    <ul class="plain">
-      <li>Multimodal and cross-lingual large language models</li>
-      <li>Evaluation methodology for generative systems</li>
-      <li>Reliability, calibration and abstention in retrieval-augmented and vision-language systems</li>
-      <li>LLM security and robustness benchmarking</li>
-      <li>Intelligent document processing</li>
+    <p class="contact">
+      Dhaka, Bangladesh<br>
+      <a href="mailto:alaminfarhad27@gmail.com">alaminfarhad27@gmail.com</a>
+    </p>
+    <ul class="links">
+      <li><a href="CV.pdf">Curriculum Vitae (PDF)</a></li>
+      <li><a href="https://scholar.google.com/citations?hl=en&amp;user=xZydn3QAAAAJ">Google Scholar</a></li>
+      <li><a href="https://github.com/Legend-2727">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/al-amin-farhad">LinkedIn</a></li>
+      <li><a href="https://huggingface.co/Legend2727">Hugging Face</a></li>
     </ul>
-  </section>
+    <nav class="toc" aria-label="Sections">
+      <a href="#interests">Research interests</a>
+      <a href="#publications">Publications</a>
+      <a href="#ongoing">Ongoing work</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#awards">Awards</a>
+      <a href="#skills">Skills</a>
+      <a href="#referees">Referees</a>
+    </nav>
+  </aside>
 
-  <section id="publications">
-    <h2>Publications and Preprints</h2>
-    <p class="note">* denotes first author.</p>
+  <main>
 
-    <article class="entry">
-      <h3>More Views, Different Answer: Monotone Consistency in Vision-Language Models</h3>
-      <p class="authors"><strong>F. Al-Amin Dipto*</strong>, A. Das, O. Hoque</p>
-      <p class="venue">Under review, VLM4RWD Workshop, NeurIPS 2026</p>
-      <p>
-        Defines monotone consistency for visual preprocessing: if a model is confident given a set of
-        views, its answer should not change when given a larger set that byte-exactly contains every
-        view it already had. Across 4,588 unselected multiple-choice items and five checkpoints, four
-        models break the property strictly. Introduces V@q, a cross-model correction that reports
-        violations on the top <em>q</em> of each model's own margin distribution; the correction reverses
-        one cross-model conclusion.
+    <section id="about" class="intro">
+      <p class="lede">
+        I am an AI Research Scientist at GenMD, a healthcare-AI company built out of Stanford Medicine,
+        and a 2026 graduate of the Department of Computer Science and Engineering at BUET, where my
+        undergraduate thesis on cross-lingual multimodal generation was supervised by
+        <a href="https://cse.buet.ac.bd/faculty/faculty_detail/rifat">Prof. Rifat Shahriyar</a>.
       </p>
-    </article>
-
-    <article class="entry">
-      <h3>Answer When Supported, Abstain When Not: Pass-Aware Calibration for Verifier-Gated RAG</h3>
-      <p class="authors"><strong>F. Al-Amin Dipto*</strong>, A. B. Shuaib, R. Shahriyar</p>
-      <p class="venue">In submission, ACL Rolling Review, October 2026 cycle</p>
       <p>
-        A separately trained 7B QLoRA verifier scores a candidate answer against retrieved context and
-        routes on a calibrated first-token-logit threshold. Pass-aware threshold selection with a
-        stratified balanced hard-negative scheme improves balanced score by +0.17 (<em>p</em> &lt; 10<sup>-4</sup>,
-        paired bootstrap) over a zero-shot gate, matches Gemini-2.5 Flash/Pro, transfers without retuning
-        to TriviaQA and Natural Questions, and raises negative abstention from 0.03 to 0.98 under a
-        wrong-span stress test.
+        My work is about <em>when a generative system should be trusted</em>: measuring where
+        vision-language and retrieval-augmented models break, designing evaluation that separates real
+        capability from output style, and building gates that let a system abstain instead of guessing.
+        I am currently applying to PhD programs in natural language processing and machine learning.
       </p>
-    </article>
+    </section>
 
-    <article class="entry">
-      <h3>Output-Style, Not Capability: Why Strict-EM Misranks Cross-Lingual VLMs</h3>
-      <p class="authors"><strong>F. Al-Amin Dipto*</strong>, O. Hoque, R. Shahriyar</p>
-      <p class="venue">In submission, ACL Rolling Review, October 2026 cycle</p>
-      <p>
-        Strict exact-match scoring misranks cross-lingual document-VQA models by rewarding output-style
-        priors over capability: ranking reversals occur in 99.8% of paired-bootstrap resamples across
-        Qwen2.5-VL-7B, Llama-3.2-Vision-11B, InternVL and Phi. Proposes a vision-grounded semantic-EM
-        judge, cross-checked against a second judge and 50 blind human annotations, and releases CLP, a
-        nine-item reporting protocol for cross-lingual VLM evaluation.
-      </p>
-    </article>
+    <section id="interests">
+      <h2>Research Interests</h2>
+      <ul class="grid-list">
+        <li>Multimodal and cross-lingual large language models</li>
+        <li>Evaluation methodology for generative systems</li>
+        <li>Reliability, calibration and abstention in retrieval-augmented and vision-language systems</li>
+        <li>LLM security and robustness benchmarking</li>
+        <li>Intelligent document processing</li>
+      </ul>
+    </section>
 
-    <article class="entry">
-      <h3>CoMedBench: A Multi-Source Benchmark of Synthetic Medical Data Fidelity and Downstream Utility</h3>
-      <p class="authors">A. Das, <strong>F. Al-Amin Dipto</strong>, M. S. Anto, D. Rehkopf, A. Vala, T. S. Pias</p>
-      <p class="venue">Preprint, under review at AAAI &middot; <a href="https://arxiv.org/abs/2608.12805">arXiv:2608.12805</a></p>
-      <p>
-        A reproducible benchmark evaluating synthetic-data generators under one clinical-validity
-        framework and a shared training and evaluation engine: 37 dataset-task pairs (20 static tabular,
-        17 temporal ICU time-series) across seven public sources including MIMIC-III, MIMIC-IV, eICU,
-        NHANES and CDC BRFSS. CoMed-TVAE retains 97.3% mean AUROC synthetic-to-real utility on tabular
-        tasks; temporal ICU tasks are harder and more generator-sensitive.
-      </p>
-    </article>
-  </section>
+    <section id="publications">
+      <h2>Publications and Preprints</h2>
+      <p class="note">* denotes first author.</p>
 
-  <section id="ongoing">
-    <h2>Ongoing Work</h2>
+      <ol class="pubs">
+        <li class="entry">
+          <h3>More Views, Different Answer: Monotone Consistency in Vision-Language Models</h3>
+          <p class="authors"><strong>F. Al-Amin Dipto*</strong>, A. Das, O. Hoque</p>
+          <p class="venue">Under review &middot; VLM4RWD Workshop, NeurIPS 2026</p>
+          <p>
+            Defines monotone consistency for visual preprocessing: if a model is confident given a set of
+            views, its answer should not change when given a larger set that byte-exactly contains every
+            view it already had. Across 4,588 unselected multiple-choice items and five checkpoints, four
+            models break the property strictly. Introduces V@q, a cross-model correction that reports
+            violations on the top <em>q</em> of each model's own margin distribution; the correction
+            reverses one cross-model conclusion.
+          </p>
+        </li>
 
-    <article class="entry">
-      <h3>StochGuard: verifying LLM-generated stochastic GPU kernels</h3>
-      <p>
-        An open-source verifier that checks a declared coupling contract rather than a reference output,
-        for a setting where exact-match evaluation rejects correct kernels and mean-statistic checks
-        accept wrong ones. Calibrated over 96,000 GH200 runs with zero false rejections and all 11
-        injected fault classes detected; 0 of 41 generated kernels drawing on PyTorch's own generator
-        passed exact-output verification. Pre-registered gates and adversarial controls surfaced four
-        defects in my own instruments, including a 70% false-negative rate since repaired.
-      </p>
-    </article>
+        <li class="entry">
+          <h3>Answer When Supported, Abstain When Not: Pass-Aware Calibration for Verifier-Gated RAG</h3>
+          <p class="authors"><strong>F. Al-Amin Dipto*</strong>, A. B. Shuaib, R. Shahriyar</p>
+          <p class="venue">In submission &middot; ACL Rolling Review, October 2026 cycle</p>
+          <p>
+            A separately trained 7B QLoRA verifier scores a candidate answer against retrieved context and
+            routes on a calibrated first-token-logit threshold. Pass-aware threshold selection with a
+            stratified balanced hard-negative scheme improves balanced score by +0.17
+            (<em>p</em> &lt; 10<sup>-4</sup>, paired bootstrap) over a zero-shot gate, matches Gemini-2.5
+            Flash/Pro, transfers without retuning to TriviaQA and Natural Questions, and raises negative
+            abstention from 0.03 to 0.98 under a wrong-span stress test.
+          </p>
+        </li>
 
-    <article class="entry">
-      <h3>LLM security benchmarking</h3>
-      <p>
-        Dataset construction and evaluation for LLM-based detection of cross-container security
-        vulnerabilities.
-      </p>
-    </article>
+        <li class="entry">
+          <h3>Output-Style, Not Capability: Why Strict-EM Misranks Cross-Lingual VLMs</h3>
+          <p class="authors"><strong>F. Al-Amin Dipto*</strong>, O. Hoque, R. Shahriyar</p>
+          <p class="venue">In submission &middot; ACL Rolling Review, October 2026 cycle</p>
+          <p>
+            Strict exact-match scoring misranks cross-lingual document-VQA models by rewarding output-style
+            priors over capability: ranking reversals occur in 99.8% of paired-bootstrap resamples across
+            Qwen2.5-VL-7B, Llama-3.2-Vision-11B, InternVL and Phi. Proposes a vision-grounded semantic-EM
+            judge, cross-checked against a second judge and 50 blind human annotations, and releases CLP, a
+            nine-item reporting protocol for cross-lingual VLM evaluation.
+          </p>
+        </li>
 
-    <article class="entry">
-      <h3>Cross-lingual multimodal generation</h3>
-      <p>
-        Extending my thesis work: finetuning open-source LLMs with PEFT (LoRA/QLoRA) and instruction
-        tuning for domain-specific generation and evaluation.
-      </p>
-    </article>
-  </section>
+        <li class="entry">
+          <h3>CoMedBench: A Multi-Source Benchmark of Synthetic Medical Data Fidelity and Downstream Utility</h3>
+          <p class="authors">A. Das, <strong>F. Al-Amin Dipto</strong>, M. S. Anto, D. Rehkopf, A. Vala, T. S. Pias</p>
+          <p class="venue">Preprint, under review at AAAI &middot; <a href="https://arxiv.org/abs/2608.12805">arXiv:2608.12805</a></p>
+          <p>
+            A reproducible benchmark evaluating synthetic-data generators under one clinical-validity
+            framework and a shared training and evaluation engine: 37 dataset-task pairs (20 static tabular,
+            17 temporal ICU time-series) across seven public sources including MIMIC-III, MIMIC-IV, eICU,
+            NHANES and CDC BRFSS. CoMed-TVAE retains 97.3% mean AUROC synthetic-to-real utility on tabular
+            tasks; temporal ICU tasks are harder and more generator-sensitive.
+          </p>
+        </li>
+      </ol>
+    </section>
 
-  <section id="projects">
-    <h2>Selected Research Projects</h2>
+    <section id="ongoing">
+      <h2>Ongoing Work</h2>
 
-    <article class="entry">
-      <h3>Evidence-Grounded Multilingual Taxonomy Evaluation for Instruction-Following Image Editing</h3>
-      <p class="venue">ViT + XLM-R</p>
-      <p>
-        A multimodal model that judges instruction-following image edits from the source image, the
-        edited image and the instruction over an 11-class taxonomy of edit failures. Curated and
-        released a 6k-image multilingual dataset (English, Hindi, Bangla) derived from PicoBanana-400K
-        with leakage-safe splits across translated variants, plus annotation and evaluation tooling.
-        Model released on <a href="https://huggingface.co/Legend2727">Hugging Face</a>.
-      </p>
-    </article>
+      <article class="entry">
+        <h3>StochGuard: verifying LLM-generated stochastic GPU kernels</h3>
+        <p>
+          An open-source verifier that checks a declared coupling contract rather than a reference output,
+          for a setting where exact-match evaluation rejects correct kernels and mean-statistic checks
+          accept wrong ones. Calibrated over 96,000 GH200 runs with zero false rejections and all 11
+          injected fault classes detected; 0 of 41 generated kernels drawing on PyTorch's own generator
+          passed exact-output verification. Pre-registered gates and adversarial controls surfaced four
+          defects in my own instruments, including a 70% false-negative rate since repaired.
+        </p>
+      </article>
 
-    <article class="entry">
-      <h3>ScholarAI: AI Research Workspace</h3>
-      <p class="venue">FastAPI, Next.js, Docker</p>
-      <p>
-        A research platform for paper search, structured extraction, contextual Q&amp;A and AI-assisted
-        LaTeX, integrating document-understanding models (GROBID, Nougat, Tesseract OCR, Table
-        Transformer) in a microservice architecture. 1st Runners-Up, Therap Javafest 2025.
-      </p>
-    </article>
+      <article class="entry">
+        <h3>LLM security benchmarking</h3>
+        <p>
+          Dataset construction and evaluation for LLM-based detection of cross-container security
+          vulnerabilities.
+        </p>
+      </article>
 
-    <article class="entry">
-      <h3>Multi-Channel Speech Enhancement and Audio-Visual Zooming</h3>
-      <p class="venue">PyTorch, DPRNN</p>
-      <p>
-        A two-channel phase-locked dereverberation model and a three-channel DPRNN enhancement model for
-        clean-speech extraction in noisy reverberant rooms. IEEE SP Cup 2026.
-      </p>
-    </article>
+      <article class="entry">
+        <h3>Cross-lingual multimodal generation</h3>
+        <p>
+          Extending my thesis work: finetuning open-source LLMs with PEFT (LoRA/QLoRA) and instruction
+          tuning for domain-specific generation and evaluation.
+        </p>
+      </article>
+    </section>
 
-    <p class="note">Further code and smaller projects are on <a href="https://github.com/Legend-2727">GitHub</a>.</p>
-  </section>
+    <section id="projects">
+      <h2>Selected Research Projects</h2>
 
-  <section id="experience">
-    <h2>Experience</h2>
-    <dl class="timeline">
-      <dt>June 2026 &ndash; present</dt>
-      <dd>
-        <strong>AI Research Scientist</strong>, GenMD &mdash; a healthcare-AI company built out of
-        Stanford Medicine. Research on large language model and multimodal systems over clinical and
-        electronic health record data; co-authored CoMedBench in this role.
-      </dd>
-    </dl>
-  </section>
+      <article class="entry">
+        <h3>Evidence-Grounded Multilingual Taxonomy Evaluation for Instruction-Following Image Editing</h3>
+        <p class="venue">ViT + XLM-R</p>
+        <p>
+          A multimodal model that judges instruction-following image edits from the source image, the
+          edited image and the instruction over an 11-class taxonomy of edit failures. Curated and
+          released a 6k-image multilingual dataset (English, Hindi, Bangla) derived from PicoBanana-400K
+          with leakage-safe splits across translated variants, plus annotation and evaluation tooling.
+          Model released on <a href="https://huggingface.co/Legend2727">Hugging Face</a>.
+        </p>
+      </article>
 
-  <section id="education">
-    <h2>Education</h2>
-    <dl class="timeline">
-      <dt>2022 &ndash; 2026</dt>
-      <dd>
-        <strong>B.Sc. in Computer Science and Engineering</strong>, Bangladesh University of Engineering
-        and Technology (BUET). Awarded with Honours, GPA 3.80/4.00 (160/160 credits).<br>
-        Thesis: <em>Cross-Lingual Multimodal Generation for Large Language Models</em>,
-        supervised by Prof. Rifat Shahriyar.
-      </dd>
-    </dl>
-  </section>
+      <article class="entry">
+        <h3>ScholarAI: AI Research Workspace</h3>
+        <p class="venue">FastAPI, Next.js, Docker</p>
+        <p>
+          A research platform for paper search, structured extraction, contextual Q&amp;A and AI-assisted
+          LaTeX, integrating document-understanding models (GROBID, Nougat, Tesseract OCR, Table
+          Transformer) in a microservice architecture. 1st Runners-Up, Therap Javafest 2025.
+        </p>
+      </article>
 
-  <section id="awards">
-    <h2>Awards</h2>
-    <ul class="plain">
-      <li>Champion, Technopreneurship 2026 (Gigalogy)</li>
-      <li>Champion, Echologyx Hackathon 2025</li>
-      <li>1st Runners-Up, Therap Javafest 2025 Grand Finale (ScholarAI)</li>
-      <li>2nd Prize, CQhack25 Quantum Computing Hackathon</li>
-      <li>Top 10 Finalist, Solvio AI Hackathon</li>
-    </ul>
-  </section>
+      <article class="entry">
+        <h3>Multi-Channel Speech Enhancement and Audio-Visual Zooming</h3>
+        <p class="venue">PyTorch, DPRNN</p>
+        <p>
+          A two-channel phase-locked dereverberation model and a three-channel DPRNN enhancement model for
+          clean-speech extraction in noisy reverberant rooms. IEEE SP Cup 2026.
+        </p>
+      </article>
 
-  <section id="skills">
-    <h2>Technical Skills</h2>
-    <dl class="skills">
-      <dt>Languages</dt>
-      <dd>Python (primary), Java, C++, JavaScript/TypeScript, SQL</dd>
-      <dt>ML / NLP</dt>
-      <dd>
-        LLM finetuning, PEFT (LoRA/QLoRA), instruction tuning, RAG, calibration and abstention,
-        LLM-as-judge and evaluation design, vision-language modelling; PyTorch, Hugging Face
-        Transformers &amp; PEFT, Triton; paired-bootstrap testing, dataset curation, reproducible
-        experiments
-      </dd>
-      <dt>Systems</dt>
-      <dd>FastAPI, Docker, PostgreSQL, Redis, RabbitMQ, GitHub Actions, Git</dd>
-      <dt>Languages spoken</dt>
-      <dd>Bengali (native); English (medium of instruction throughout undergraduate study at BUET)</dd>
-    </dl>
-  </section>
+      <p class="note">Further code and smaller projects are on <a href="https://github.com/Legend-2727">GitHub</a>.</p>
+    </section>
 
-  <section id="referees">
-    <h2>Referees</h2>
-    <ul class="plain">
-      <li>
-        <strong>Dr. Rifat Shahriyar</strong> &mdash; Professor, Department of CSE, BUET.
-        Undergraduate thesis supervisor and co-author.
-      </li>
-      <li>
-        <strong><a href="https://piastanmoy.github.io/Tanmoy_CV/">Dr. Tanmoy Sarkar Pias</a></strong>
-        &mdash; Postdoctoral Scholar, Stanford University. Co-author, CoMedBench.
-      </li>
-    </ul>
-    <p class="note">Contact details are in my <a href="CV.pdf">CV</a>.</p>
-  </section>
+    <section id="experience">
+      <h2>Experience</h2>
+      <dl class="timeline">
+        <dt>June 2026 &ndash; present</dt>
+        <dd>
+          <strong>AI Research Scientist</strong>, GenMD &mdash; a healthcare-AI company built out of
+          Stanford Medicine. Research on large language model and multimodal systems over clinical and
+          electronic health record data; co-authored CoMedBench in this role.
+        </dd>
+      </dl>
+    </section>
 
-  <footer>
-    <p>Last updated September 2026.</p>
-  </footer>
+    <section id="education">
+      <h2>Education</h2>
+      <dl class="timeline">
+        <dt>2022 &ndash; 2026</dt>
+        <dd>
+          <strong>B.Sc. in Computer Science and Engineering</strong>, Bangladesh University of Engineering
+          and Technology (BUET). Awarded with Honours, GPA 3.80/4.00 (160/160 credits).<br>
+          Thesis: <em>Cross-Lingual Multimodal Generation for Large Language Models</em>, supervised by
+          <a href="https://cse.buet.ac.bd/faculty/faculty_detail/rifat">Prof. Rifat Shahriyar</a>.
+        </dd>
+      </dl>
+    </section>
 
-</main>
+    <section id="awards">
+      <h2>Awards</h2>
+      <ul class="grid-list">
+        <li>Champion, Technopreneurship 2026 (Gigalogy)</li>
+        <li>Champion, Echologyx Hackathon 2025</li>
+        <li>1st Runners-Up, Therap Javafest 2025 Grand Finale (ScholarAI)</li>
+        <li>2nd Prize, CQhack25 Quantum Computing Hackathon</li>
+        <li>Top 10 Finalist, Solvio AI Hackathon</li>
+      </ul>
+    </section>
+
+    <section id="skills">
+      <h2>Technical Skills</h2>
+      <dl class="skills">
+        <dt>Languages</dt>
+        <dd>Python (primary), Java, C++, JavaScript/TypeScript, SQL</dd>
+        <dt>ML / NLP</dt>
+        <dd>
+          LLM finetuning, PEFT (LoRA/QLoRA), instruction tuning, RAG, calibration and abstention,
+          LLM-as-judge and evaluation design, vision-language modelling; PyTorch, Hugging Face
+          Transformers &amp; PEFT, Triton; paired-bootstrap testing, dataset curation, reproducible
+          experiments
+        </dd>
+        <dt>Systems</dt>
+        <dd>FastAPI, Docker, PostgreSQL, Redis, RabbitMQ, GitHub Actions, Git</dd>
+        <dt>Languages spoken</dt>
+        <dd>Bengali (native); English (medium of instruction throughout undergraduate study at BUET)</dd>
+      </dl>
+    </section>
+
+    <section id="referees">
+      <h2>Referees</h2>
+      <ul class="referees">
+        <li>
+          <strong><a href="https://cse.buet.ac.bd/faculty/faculty_detail/rifat">Dr. Rifat Shahriyar</a></strong><br>
+          Professor, Department of CSE, BUET<br>
+          <span class="note">Undergraduate thesis supervisor and co-author</span>
+        </li>
+        <li>
+          <strong><a href="https://piastanmoy.github.io/Tanmoy_CV/">Dr. Tanmoy Sarkar Pias</a></strong><br>
+          Postdoctoral Scholar, Stanford University<br>
+          <span class="note">Co-author, CoMedBench</span>
+        </li>
+      </ul>
+      <p class="note">Contact details are in my <a href="CV.pdf">CV</a>.</p>
+    </section>
+
+    <footer>
+      <p>Last updated September 2026.</p>
+    </footer>
+
+  </main>
+
+</div>
 
 </body>
 </html>
